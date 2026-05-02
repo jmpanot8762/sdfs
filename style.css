@@ -1,0 +1,559 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial;
+  transition: all 0.3s ease;
+}
+
+/* BODY */
+body {
+  background: linear-gradient(135deg, #000000, #0f1a2a);
+  color: white;
+  overflow-x: hidden;
+}
+
+/* BACKGROUND GLOW */
+.bg-overlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(128,0,255,0.15), transparent 60%);
+  animation: glowPulse 6s infinite ease-in-out;
+  z-index: -1;
+}
+
+/* NAVBAR */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;
+  background: rgba(0,0,0,0.75);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+}
+
+.logo {
+  text-shadow: 0 0 20px purple;
+  font-size: 24px;
+}
+
+nav a {
+  margin: 0 12px;
+  text-decoration: none;
+  color: white;
+  position: relative;
+}
+
+nav a:hover {
+  color: #c084ff;
+  transform: scale(1.1);
+  text-shadow: 0 0 10px purple;
+}
+
+/* HERO */
+.hero {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+/* HERO IMAGE */
+.hero-img {
+  width: 180px;
+  height: 270px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 3px solid purple;
+  box-shadow: 0 0 25px rgba(128,0,255,0.8);
+}
+
+.hero-img:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 40px rgba(128,0,255,1);
+}
+
+/* SECTIONS */
+section {
+  padding: 90px 20px;
+  text-align: center;
+}
+
+.title {
+  font-size: 32px;
+  margin-bottom: 30px;
+  text-shadow: 0 0 10px purple;
+}
+
+/* GRID LAYOUT (REFERENCE STYLE) */
+.section-grid {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+/* CARDS */
+.card {
+  width: 260px;
+  padding: 20px;
+  border-radius: 15px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(128,0,255,0.3);
+  box-shadow: 0 0 10px rgba(128,0,255,0.2);
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 35px rgba(128,0,255,0.9);
+}
+
+/* PROJECT IMAGES */
+.project-img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 10px;
+}
+
+.project-img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(128,0,255,0.8);
+}
+
+/* BUTTONS */
+.btn,
+.learn-btn {
+  display: inline-block;
+  padding: 10px 18px;
+  border-radius: 20px;
+  background: linear-gradient(45deg, purple, black);
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btn:hover,
+.learn-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 35px purple;
+}
+
+/* ABOUT CARDS */
+.about-card {
+  width: 280px;
+  padding: 20px;
+  border-radius: 15px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(128,0,255,0.3);
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(128,0,255,0.2);
+}
+
+.about-card:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 35px rgba(128,0,255,0.9);
+}
+
+/* ABOUT CONTENT COLLAPSE */
+.about-content {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: 0.4s ease;
+  margin-top: 10px;
+}
+
+.about-card.active .about-content {
+  max-height: 200px;
+  opacity: 1;
+}
+
+/* CONTACT */
+.contact-center {
+  display: flex;
+  justify-content: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+form input,
+form textarea {
+  width: 300px;
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  background: rgba(255,255,255,0.1);
+  color: white;
+}
+
+form input:hover,
+form textarea:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 15px purple;
+}
+
+/* ANIMATION */
+@keyframes glowPulse {
+  0% { box-shadow: 0 0 10px rgba(128,0,255,0.3); }
+  50% { box-shadow: 0 0 25px rgba(128,0,255,0.9); }
+  100% { box-shadow: 0 0 10px rgba(128,0,255,0.3); }
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .section-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+} 
+
+/* CONTACT CARDS (ADDED INFO SECTION) */
+.contact-card {
+  width: 260px;
+  padding: 20px;
+  border-radius: 15px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(128,0,255,0.3);
+  box-shadow: 0 0 10px rgba(128,0,255,0.2);
+  text-align: center;
+  transition: 0.3s ease;
+}
+
+/* HOVER GLOW + ENLARGE */
+.contact-card:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 35px rgba(128,0,255,0.9);
+}
+
+/* CONTACT LINKS */
+.contact-card a {
+  display: block;
+  margin-top: 8px;
+  color: #c084ff;
+  text-decoration: none;
+  word-break: break-word;
+}
+
+.contact-card a:hover {
+  text-shadow: 0 0 10px purple;
+}
+
+/* CONTACT GRID FIX (so it aligns like your other sections) */
+.contact-center {
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+} 
+ 
+/* ABOUT CONTENT DROPDOWN */
+.about-content {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  margin-top: 10px;
+  transition: 0.4s ease;
+}
+
+/* WHEN CLICKED */
+.about-card.active .about-content {
+  max-height: 300px;
+  opacity: 1;
+}
+
+/* OPTIONAL EXTRA GLOW ON CLICK */
+.about-card.active {
+  box-shadow: 0 0 40px rgba(128,0,255,0.9);
+  transform: scale(1.05);
+}
+ 
+/* =========================
+   TRUE OVAL VENOM FRAME (FORCED CROP)
+========================= */
+.oval-frame {
+  width: 240px;
+  height: 340px;
+
+  border-radius: 50%;
+
+  overflow: hidden; /* 🔥 THIS IS WHAT FORCES OVAL */
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: relative;
+
+  border: 3px solid rgba(128,0,255,0.95);
+
+  box-shadow:
+    0 0 15px rgba(128,0,255,0.6),
+    0 0 35px rgba(128,0,255,0.9),
+    0 0 70px rgba(128,0,255,0.5);
+
+  animation: glowPulse 4s infinite ease-in-out;
+}
+
+/* IMAGE MUST STRETCH FULL FRAME */
+.oval-img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover; /* 🔥 IMPORTANT: removes box feel */
+
+  display: block; /* prevents inline spacing issues */
+}
+
+/* =========================
+   BOX FRAME (SECOND IMAGE)
+========================= */
+.box-frame {
+  width: 420px;
+  height: 260px;
+
+  border-radius: 16px;
+
+  overflow: hidden;
+
+  border: 3px solid rgba(128,0,255,0.95);
+
+  box-shadow:
+    0 0 15px rgba(128,0,255,0.6),
+    0 0 35px rgba(128,0,255,0.9),
+    0 0 70px rgba(128,0,255,0.5);
+
+  margin-top: 25px;
+
+  animation: glowPulse 4s infinite ease-in-out;
+}
+
+.box-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+/* =========================
+   GLOWING TEXT BOX (VENOM HUD STYLE)
+========================= */
+.text-glow-box {
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 20px 25px;
+
+  border-radius: 15px;
+
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(128, 0, 255, 0.4);
+
+  box-shadow:
+    0 0 15px rgba(128, 0, 255, 0.4),
+    0 0 35px rgba(128, 0, 255, 0.6);
+
+  animation: glowPulse 4s infinite ease-in-out;
+
+  text-align: justify;
+}
+
+.text-glow-box p {
+  color: white;
+  line-height: 1.7;
+  font-size: 15px;
+}
+
+/* EXTRA HOVER EFFECT */
+.text-glow-box:hover {
+  transform: scale(1.02);
+  box-shadow:
+    0 0 25px rgba(128, 0, 255, 0.8),
+    0 0 60px rgba(128, 0, 255, 0.9);
+}
+/* DEFAULT TEXT FONT */
+body {
+  font-family: 'Rajdhani', sans-serif;
+}
+
+/* TITLES */
+h1, h2, h3 {
+  font-family: 'Orbitron', sans-serif;
+  letter-spacing: 1px;
+}
+
+/* GLOW TEXT BOX */
+.text-glow-box p {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 15px;
+  line-height: 1.7;
+}
+/* BIGGER HERO IMAGE BOX (UPDATED) */
+.hero-box-img {
+  width: 100%;
+  max-width: 750px;   /* bigger than before */
+  height: 480px;      /* taller */
+
+  margin: 0 auto;
+
+  border-radius: 20px;
+
+  overflow: hidden;
+
+  border: 3px solid rgba(128,0,255,0.95);
+
+  box-shadow:
+    0 0 20px rgba(128,0,255,0.7),
+    0 0 50px rgba(128,0,255,0.9),
+    0 0 90px rgba(128,0,255,0.5);
+
+  animation: glowPulse 4s infinite ease-in-out;
+}
+/* BIG GLOWING MIRROR BORDER (SECOND IMAGE ONLY) */
+.mirror-border {
+  position: relative;
+
+  border-radius: 18px;
+
+  padding: 10px;
+
+  border: 2px solid rgba(128,0,255,0.8);
+
+  box-shadow:
+    0 0 20px rgba(128,0,255,0.6),
+    0 0 60px rgba(128,0,255,0.9),
+    0 0 120px rgba(128,0,255,0.4);
+
+  background: rgba(128,0,255,0.05);
+
+  backdrop-filter: blur(8px);
+
+  animation: glowPulse 4s infinite ease-in-out;
+}
+
+.mirror-border img {
+  border-radius: 14px;
+  display: block;
+}
+
+.mirror-border:hover {
+  transform: scale(1.03);
+  box-shadow:
+    0 0 35px rgba(128,0,255,1),
+    0 0 90px rgba(128,0,255,1);
+}
+/* =========================
+   SECOND IMAGE GLOW BORDER (ALL PAGES)
+   Venom-style mirror glow frame
+========================= */
+
+.glow-box {
+  padding: 10px;
+  border-radius: 18px;
+
+  border: 2px solid rgba(128,0,255,0.8);
+
+  background: rgba(128,0,255,0.05);
+
+  box-shadow:
+    0 0 20px rgba(128,0,255,0.5),
+    0 0 60px rgba(128,0,255,0.8),
+    0 0 120px rgba(128,0,255,0.3);
+
+  backdrop-filter: blur(8px);
+
+  display: inline-block;
+
+  animation: glowPulse 4s infinite ease-in-out;
+}
+/* =========================
+   GLOBAL FIX (ALL HTML FILES)
+   SCROLL + IMAGE + LAYOUT FIX
+========================= */
+
+/* allow full page scrolling everywhere */
+html, body {
+  height: auto;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+}
+
+/* remove height limit that cuts content */
+.hero {
+  height: auto !important;
+  min-height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+
+  padding: 60px 20px;
+  text-align: center;
+}
+
+/* allow content to grow properly */
+.hero-content {
+  width: 100%;
+  max-width: 1000px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+}
+
+/* prevent image overflow containers */
+.hero-box-img,
+.glow-box {
+  width: 100%;
+  max-width: 750px;
+}
+
+/* FIX IMAGES (no cropping, no “head only”) */
+.project-img,
+.glow-box-img,
+.hero-box-img-content {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+/* mobile responsiveness */
+@media (max-width: 768px) {
+  .hero {
+    padding: 40px 15px;
+  }
+
+  .hero-content {
+    max-width: 100%;
+  }
+
+  .hero-box-img,
+  .glow-box {
+    max-width: 100%;
+  }
+}
